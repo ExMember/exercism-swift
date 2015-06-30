@@ -1,3 +1,29 @@
+/*
+# word count
+
+write a program that given a phrase can count the occurrences of each word in that phrase.
+
+for example for the input `"olly olly in come free"`
+
+```plain
+olly: 2
+in: 1
+come: 1
+free: 1
+```
+
+
+## setup
+
+go through the project setup instructions for xcode using swift:
+
+http://help.exercism.io/getting-started-with-swift.html
+
+
+## source
+
+the golang tour [view source](http://tour.golang.org)
+*/
 import XCTest
 
 /*
@@ -33,7 +59,7 @@ class WordCountTest: XCTestCase {
         
         XCTAssertEqual(expected, result)
     }
-    
+
     func testIgnorePunctation() {
         let words = WordCount(words: "car : carpet as java : javascript!!&$%^&")
         let expected = ["car" : 1, "carpet" : 1, "as" : 1, "java" : 1, "javascript" : 1 ]
@@ -57,5 +83,4 @@ class WordCountTest: XCTestCase {
         
         XCTAssertEqual(expected, result)
     }
-    
 }
