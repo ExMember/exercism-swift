@@ -32,24 +32,9 @@ class WordCount {
     }
     
     private func getWordList(input:String) -> Array<String> {
-      //input = input.stringByRe
-      // input = input.lowercaseString
-      //return input.componentsSeparatedByCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
-      //return input.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        //return ["word"]
-      let whitespaceAndPunctuationSet = NSMutableCharacterSet.whitespaceAndNewlineCharacterSet()
-      whitespaceAndPunctuationSet.formUnionWithCharacterSet(NSCharacterSet.punctuationCharacterSet())
-      
-      println(input)
-      let scanner = NSScanner(string: input)
-      var wordList = [String]()
-      var possibleWord:NSString?
-      while scanner.scanUpToCharactersFromSet(whitespaceAndPunctuationSet, intoString: &possibleWord) {
-        println(possibleWord)
-        if let word = possibleWord {
-          wordList.append(String(word))
-        }
-      }
-      return wordList
+      var clean_string = input.lowercaseString
+      var words = clean_string.componentsSeparatedByCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+      words = words.filter({$0 != ""})
+      return words
     }
 }
