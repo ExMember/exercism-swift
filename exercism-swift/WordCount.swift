@@ -32,8 +32,9 @@ class WordCount {
     }
     
     private func getWordList(input:String) -> Array<String> {
-      var clean_string = input.lowercaseString
-      var words = clean_string.componentsSeparatedByCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+      let lowercased_input = input.lowercaseString
+      let unwantedChars = NSCharacterSet.alphanumericCharacterSet().invertedSet
+      var words = lowercased_input.componentsSeparatedByCharactersInSet(unwantedChars)
       words = words.filter({$0 != ""})
       return words
     }
